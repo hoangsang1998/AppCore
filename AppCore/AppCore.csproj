@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-AppCore-02EAAE97-9EB0-4449-B141-918648A28316</UserSecretsId>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\AppCore.Application\AppCore.Application.csproj" />
+    <ProjectReference Include="..\AppCore.Data.EF\AppCore.Data.EF.csproj" />
+    <ProjectReference Include="..\AppCore.Data\AppCore.Data.csproj" />
+    <ProjectReference Include="..\AppCore.Infrastucture\AppCore.Infrastucture.csproj" />
+    <ProjectReference Include="..\AppCore.Utilities\AppCore.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>
