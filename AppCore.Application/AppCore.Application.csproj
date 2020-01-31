@@ -5,9 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
     <Folder Include="Inplementations\" />
     <Folder Include="AutoMapper\" />
+    <Folder Include="Interfaces\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
 
