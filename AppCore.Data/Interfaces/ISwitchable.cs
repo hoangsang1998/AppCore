@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AppCore.Data.Interfaces
 {
-    public interface ISwichable
+    public interface ISwitchable
     {
         Status Status { set; get; }
     }

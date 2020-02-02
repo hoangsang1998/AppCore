@@ -1,21 +1,16 @@
 ﻿using AppCore.Infrastucture.SharedKernel;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace AppCore.Data.Entities
 {
-    [Table("Tags")]
-    public class Tag : DomainEntity<string>
+    [Table("AdvertistmentPages")]
+    public class AdvertistementPage : DomainEntity<string>
     {
-        [MaxLength(50)]
-        [Required]
         public string Name { get; set; }
-
-        [MaxLength(50)]
-        [Required]
-        public string Type { get; set; }
+        
+        public virtual ICollection<AdvertistmentPosition> AdvertistmentPositions { get; set; }
     }
 }

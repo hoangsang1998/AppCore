@@ -11,9 +11,9 @@ namespace AppCore.Data.Interfaces
 
         string SeoAlias { set; get; }
 
-        string SeoKeyWords { set; get; }
+        string SeoKeywords { set; get; }
 
-        string SeoDecription { set; get; }
+        string SeoDescription { set; get; }
 
     }
 }

@@ -9,6 +9,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AppCore.Data\AppCore.Data.csproj" />
     <ProjectReference Include="..\AppCore.Infrastucture\AppCore.Infrastucture.csproj" />
     <ProjectReference Include="..\AppCore.Utilities\AppCore.Utilities.csproj" />

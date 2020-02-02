@@ -11,12 +11,12 @@ using System.Text;
 namespace AppCore.Data.Entities
 {
     [Table("Products")]
-    public class Product : DomainEntity<int>, ISwichable, IDateTracking, IHasSeoMetaData
+    public class Product : DomainEntity<int>, ISwitchable, IDateTracking, IHasSeoMetaData
     {
         [StringLength(255)]
         [Required]
         public string Name { get; set; }
-        
+
         [Required]
         public int CategoryId { get; set; }
 
@@ -46,20 +46,27 @@ namespace AppCore.Data.Entities
         [StringLength(255)]
         public string Tags { get; set; }
 
+        [StringLength(255)]
         public string Unit { get; set; }
 
         [ForeignKey("CategoryId")]
         public virtual ProductCategory ProductCategory { set; get; }
 
+        public string SeoPageTitle { set; get; }
 
-        public string SeoPageTitle {set;get;}
-        [Column(TypeName ="varchar")]
+        [Column(TypeName = "varchar")]
         [StringLength(255)]
-        public string SeoAlias {set;get;}
-        public string SeoKeyWords {set;get;}
-        public string SeoDecription {set;get;}
-        public DateTime DateCreated {set;get;}
-        public DateTime DateModyfied {set;get;}
-        public Status Status {set;get;}
+        public string SeoAlias { set; get; }
+
+        [StringLength(255)]
+        public string SeoKeywords { set; get; }
+
+        [StringLength(255)]
+        public string SeoDescription { set; get; }
+
+        public DateTime DateCreated { set; get; }
+        public DateTime DateModified { set; get; }
+
+        public Status Status { set; get; }
     }
 }

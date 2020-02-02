@@ -3,17 +3,18 @@ using AppCore.Data.Interfaces;
 using AppCore.Infrastucture.SharedKernel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AppCore.Data.Entities
 {
-    public class ProductCategory : DomainEntity<int>, IHasSeoMetaData, ISwichable, ISortable, IDateTracking
+    [Table("ProductCategories")]
+    public class ProductCategory : DomainEntity<int>,
+        IHasSeoMetaData, ISwitchable, ISortable, IDateTracking
     {
         public ProductCategory()
         {
             Products = new List<Product>();
         }
-
-
         public string Name { get; set; }
 
         public string Description { get; set; }
@@ -26,14 +27,15 @@ namespace AppCore.Data.Entities
 
         public bool? HomeFlag { get; set; }
 
-        public DateTime DateCreated { get; set; }
-        public DateTime DateModyfied { get; set; }
-        public int SortOrder { get; set; }
-        public Status Status { get; set; }
-        public string SeoPageTitle { get; set; }
-        public string SeoAlias { get; set; }
-        public string SeoKeyWords { get; set; }
-        public string SeoDecription { get; set; }
-        public virtual ICollection<Product> Products { get; set; }
+        public DateTime DateCreated { set; get; }
+        public DateTime DateModified { set; get; }
+        public int SortOrder { set; get; }
+        public Status Status { set; get; }
+        public string SeoPageTitle { set; get; }
+        public string SeoAlias { set; get; }
+        public string SeoKeywords { set; get; }
+        public string SeoDescription { set; get; }
+
+        public virtual ICollection<Product> Products { set; get; }
     }
 }

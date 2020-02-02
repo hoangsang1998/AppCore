@@ -7,6 +7,6 @@ namespace AppCore.Data.Interfaces
 
         DateTime DateCreated { set; get; }
 
-        DateTime DateModyfied { set; get; }
+        DateTime DateModified { set; get; }
     }
 }
