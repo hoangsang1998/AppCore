@@ -12,6 +12,8 @@ using AppCore.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using AppCore.Data.EF;
+using AppCore.Data.Entities;
 
 namespace AppCore
 {
@@ -27,17 +29,21 @@ namespace AppCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                    Configuration.GetConnectionString("DefaultConnection"), o=>o.MigrationsAssembly("AppCore.Data.EF")));
+            services.AddIdentity<AppUser,AppRole>()
+                .AddEntityFrameworkStores<AppDbContext>();
             services.AddControllersWithViews();
+            services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
+            services.AddScoped<UserManager<AppRole>, UserManager<AppRole>>();
+
+            services.AddTransient<DbInitializer>();
             services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DbInitializer dbInitializer)
         {
             if (env.IsDevelopment())
             {
@@ -65,6 +71,7 @@ namespace AppCore
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+            dbInitializer.Seed().Wait();
         }
     }
 }
