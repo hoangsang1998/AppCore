@@ -2,9 +2,7 @@
 using AppCore.Data.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace AppCore.Data.Entities
 {
@@ -19,8 +17,8 @@ namespace AppCore.Data.Entities
 
         public string Avatar { get; set; }
 
-        public Status Status {set;get;}
-        public DateTime DateCreated {set;get;}
-        public DateTime DateModified {set;get;}
+        public Status Status { set; get; }
+        public DateTime DateCreated { set; get; }
+        public DateTime DateModified { set; get; }
     }
 }

@@ -17,7 +17,7 @@ namespace AppCore.Data.Entities
         public string Name { get; set; }
 
         [ForeignKey("PageId")]
-        public virtual AdvertistementPage AdvertistmentPage { get; set; }
+        public virtual AdvertistmentPage AdvertistmentPage { get; set; }
         
         public virtual ICollection<Advertistment> Advertistements { get; set; }
     }
